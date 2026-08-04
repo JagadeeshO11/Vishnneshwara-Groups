@@ -1,4 +1,5 @@
 import "./Services.css"
+import { useScrollReveal } from "../hooks/useScrollReveal.js"
 import { ArrowRight, ChatIcon, WhatsAppIcon, MailIcon, Bolt, Shield, Chart, Gauge, Target, Headset } from "../Icons.jsx"
 
 const services = [
@@ -68,11 +69,15 @@ const benefits = [
 ]
 
 export default function Services() {
+  const heroR     = useScrollReveal(0.1)
+  const gridR     = useScrollReveal(0.1)
+  const benefitsR = useScrollReveal(0.1)
+  const ctaR      = useScrollReveal(0.1)
+
   return (
     <>
-      {/* Hero */}
       <section className="svc-hero">
-        <div className="container svc-hero__inner">
+        <div className={"container svc-hero__inner reveal" + (heroR.visible ? " visible" : "")} ref={heroR.ref}>
           <span className="badge">COMPREHENSIVE BROADCAST SOLUTIONS</span>
           <h1 className="svc-hero__title">All Your <span className="c-green">Messaging Needs</span> in One Platform</h1>
           <p className="svc-hero__sub">From SMS to WhatsApp to Email — we provide end-to-end broadcast solutions that help businesses communicate at scale.</p>
@@ -83,12 +88,13 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Services Grid */}
       <section className="svc-list">
         <div className="container">
-          <p className="eyebrow"><span className="eyebrow__dash" /> OUR SERVICES</p>
-          <h2 className="section-title">Everything You Need to <span className="c-green">Broadcast</span></h2>
-          <div className="svc-grid">
+          <div className={"reveal" + (gridR.visible ? " visible" : "")} ref={gridR.ref}>
+            <p className="eyebrow"><span className="eyebrow__dash" /> OUR SERVICES</p>
+            <h2 className="section-title">Everything You Need to <span className="c-green">Broadcast</span></h2>
+          </div>
+          <div className={"svc-grid stagger" + (gridR.visible ? " visible" : "")}>
             {services.map((s) => (
               <article key={s.id} className="card svc-card">
                 <span className={"svc-card__icon svc-card__icon--" + s.color}>{s.icon}</span>
@@ -96,9 +102,7 @@ export default function Services() {
                 <p className="svc-card__tagline">{s.tagline}</p>
                 <p className="svc-card__desc">{s.desc}</p>
                 <ul className="svc-card__features">
-                  {s.features.map((f) => (
-                    <li key={f}><span className="svc-check" aria-hidden="true">✓</span>{f}</li>
-                  ))}
+                  {s.features.map((f) => <li key={f}><span className="svc-check" aria-hidden="true">✓</span>{f}</li>)}
                 </ul>
                 <button className={"btn svc-card__btn svc-card__btn--" + s.color}>Learn More <ArrowRight /></button>
               </article>
@@ -107,12 +111,13 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Benefits */}
       <section className="svc-benefits">
         <div className="container">
-          <p className="eyebrow eyebrow--light">WHY CHOOSE US</p>
-          <h2 className="section-title section-title--light">Built for <span className="c-green">Performance</span></h2>
-          <div className="svc-benefits__grid">
+          <div className={"reveal" + (benefitsR.visible ? " visible" : "")} ref={benefitsR.ref}>
+            <p className="eyebrow eyebrow--light">WHY CHOOSE US</p>
+            <h2 className="section-title section-title--light">Built for <span className="c-green">Performance</span></h2>
+          </div>
+          <div className={"svc-benefits__grid stagger" + (benefitsR.visible ? " visible" : "")}>
             {benefits.map((b) => (
               <div key={b.title} className="svc-benefit">
                 <span className="svc-benefit__icon">{b.icon}</span>
@@ -124,10 +129,9 @@ export default function Services() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="svc-cta-section">
         <div className="container">
-          <div className="svc-cta">
+          <div className={"svc-cta reveal-scale" + (ctaR.visible ? " visible" : "")} ref={ctaR.ref}>
             <h2 className="svc-cta__title">Ready to Start Broadcasting?</h2>
             <p className="svc-cta__text">Get started in minutes. No setup fees. Cancel anytime.</p>
             <div className="svc-cta__btns">

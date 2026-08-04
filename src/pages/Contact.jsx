@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "./Contact.css"
+import { useScrollReveal } from "../hooks/useScrollReveal.js"
 import { ArrowRight, Phone, MailIcon, Pin, Headset } from "../Icons.jsx"
 
 const faqs = [
@@ -13,24 +14,25 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" })
   const [sent, setSent] = useState(false)
   const [openFaq, setOpenFaq] = useState(null)
+  const heroR = useScrollReveal(0.1)
+  const mainR = useScrollReveal(0.1)
+  const faqR  = useScrollReveal(0.1)
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
   const handleSubmit = (e) => { e.preventDefault(); setSent(true) }
 
   return (
     <>
-      {/* Hero */}
       <section className="contact-hero">
-        <div className="container contact-hero__inner">
+        <div className={"container contact-hero__inner reveal" + (heroR.visible ? " visible" : "")} ref={heroR.ref}>
           <span className="badge">GET IN TOUCH</span>
           <h1 className="contact-hero__title">We'd Love to <span className="c-green">Hear From You</span></h1>
           <p className="contact-hero__sub">Have a question, need a demo, or want to discuss a custom plan? Our team is ready to help.</p>
         </div>
       </section>
 
-      {/* Contact Grid */}
       <section className="contact-main">
-        <div className="container contact-main__inner">
+        <div className={"container contact-main__inner stagger" + (mainR.visible ? " visible" : "")} ref={mainR.ref}>
           {/* Form */}
           <div className="contact-form-wrap">
             <h2 className="contact-form__title">Send Us a Message</h2>

@@ -73,28 +73,25 @@
   margin-top: 3px;
 }
 
-.badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #cdd8f5;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  padding: 7px 16px;
-  border-radius: 999px;
-  margin-bottom: 24px;
-  backdrop-filter: blur(4px);
-}
-
-
 .hero__title {
-  font-size: clamp(1.9rem, 4vw, 2.8rem);
-  line-height: 1.18;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.22;
   font-weight: 800;
   letter-spacing: -0.5px;
   max-width: 540px;
   text-wrap: balance;
+}
+
+.typewriter-word {
+  display: inline-block;
+  min-width: 9ch;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.hero__title-line {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .hero__sub {
   margin-top: 18px;
@@ -125,97 +122,80 @@
 
 .hero__right { display: flex; justify-content: center; align-items: center; }
 
-/* ── Hero logo — premium layered dual-side halo ── */
+/* ── Hero logo — single size token drives all layers ── */
+/*    --logo-sz controls wrap, ring, and img together    */
 .hero__logo-wrap {
+  --logo-sz: 280px;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: min(360px, 100%);
-  height: min(360px, 100vw);
+  width: var(--logo-sz);
+  height: var(--logo-sz);
   flex-shrink: 0;
   animation: float 5s ease-in-out infinite;
-  overflow: visible;
 }
 
-/* Layer 1 — outermost glow */
+/* Layer 1 — soft outer glow (sits behind ring) */
 .hero__logo-wrap::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -20px;
   border-radius: 50%;
   background:
-    radial-gradient(ellipse 55% 100% at 0% 50%,   rgba(38,178,75,0.22)  0%, transparent 70%),
-    radial-gradient(ellipse 55% 100% at 100% 50%,  rgba(31,111,224,0.22) 0%, transparent 70%),
-    radial-gradient(ellipse 100% 100% at 50% 50%,  rgba(7,20,64,0.18)    0%, transparent 80%);
-  filter: blur(18px);
+    radial-gradient(ellipse 55% 100% at 0%   50%, rgba(38,178,75,0.28)  0%, transparent 65%),
+    radial-gradient(ellipse 55% 100% at 100% 50%, rgba(31,111,224,0.28) 0%, transparent 65%);
+  filter: blur(20px);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Layer 2 — colour bloom */
-.hero__logo-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background:
-    radial-gradient(ellipse 45% 90% at 2%   50%, rgba(38,178,75,0.55)   0%, rgba(38,178,75,0.08)  55%, transparent 75%),
-    radial-gradient(ellipse 45% 90% at 98%  50%, rgba(31,111,224,0.55)  0%, rgba(31,111,224,0.08) 55%, transparent 75%),
-    radial-gradient(ellipse 80% 80% at 50%  50%, rgba(255,255,255,0.06) 0%, transparent 65%);
-  filter: blur(6px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Layer 3 — crisp gradient ring border */
+/* Layer 2 — conic ring border, exactly wraps the logo circle */
 .hero__logo-ring {
   position: absolute;
-  inset: -5px;
+  inset: 0;
   border-radius: 50%;
   background: conic-gradient(
     from 120deg,
     rgba(38,178,75,0.9)   0deg,
-    rgba(255,255,255,0.6) 60deg,
+    rgba(255,255,255,0.5) 60deg,
     rgba(31,111,224,0.9)  120deg,
-    rgba(7,20,64,0.4)     180deg,
+    rgba(7,20,64,0.35)    180deg,
     rgba(31,111,224,0.9)  240deg,
-    rgba(255,255,255,0.6) 300deg,
+    rgba(255,255,255,0.5) 300deg,
     rgba(38,178,75,0.9)   360deg
   );
   z-index: 1;
   pointer-events: none;
 }
 
-/* Layer 4 — inner white fade to isolate logo */
+/* Layer 3 — white mask punched inside ring, leaving a 4px border */
 .hero__logo-ring::after {
   content: "";
   position: absolute;
-  inset: 5px;
+  inset: 4px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--white) 60%, transparent 100%);
+  background: var(--white);
   pointer-events: none;
 }
 
+/* Layer 4 — the actual logo, clipped to circle, sits above mask */
 .hero__logo {
-  position: relative;
-  z-index: 2;
-  width: 320px;
-  height: 320px;
+  position: absolute;
+  inset: 4px;                   /* same as ring::after so it fills the white mask exactly */
+  width: calc(var(--logo-sz) - 8px);
+  height: calc(var(--logo-sz) - 8px);
   border-radius: 50%;
   background: var(--white);
   object-fit: contain;
-  display: block;
-  padding: 20px;
+  padding: 10%;
+  z-index: 2;
   box-shadow:
-    0 0 0 2px rgba(255,255,255,0.9),
-    0 8px 40px rgba(0,0,0,0.28),
-    -4px 0 24px rgba(38,178,75,0.2),
-    4px  0 24px rgba(31,111,224,0.2);
+    0 6px 32px rgba(0,0,0,0.22),
+    -3px 0 18px rgba(38,178,75,0.18),
+     3px 0 18px rgba(31,111,224,0.18);
 }
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-12px); }
+  50%       { transform: translateY(-10px); }
 }
 
 /* ── Services ── */
@@ -393,8 +373,8 @@
   .channels { justify-content: center; gap: 20px; }
   .hero__cta { justify-content: center; }
   .hero__right { order: -1; }
-  .hero__logo-wrap { animation: none; width: min(220px, 80vw); height: min(220px, 80vw); }
-  .hero__logo { width: min(190px, 72vw); height: min(190px, 72vw); }
+  .hero__logo-wrap { animation: none; --logo-sz: 200px; }
+  .hero__logo { padding: 10%; }
 
   .cards { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
 
@@ -423,7 +403,7 @@
   .hero__corner-mark  { width: 42px; height: 42px; border-radius: 8px; padding: 4px; }
   .hero__corner-text strong { font-size: 0.68rem; }
   .hero__corner-text em     { letter-spacing: 2.5px; font-size: 0.42rem; }
-  .hero__logo { width: 190px; height: 190px; padding: 14px; }
+  .hero__logo-wrap { --logo-sz: min(160px, 56vw); }
   .channels { flex-direction: column; align-items: center; gap: 14px; }
   .hero__cta { flex-direction: column; align-items: center; }
   .hero__cta .btn { width: 100%; max-width: 280px; justify-content: center; }

@@ -247,6 +247,7 @@
 .dash-status--completed  { background: rgba(38,178,75,0.1);  color: var(--green); }
 .dash-status--running    { background: rgba(31,111,224,0.1); color: var(--blue); }
 .dash-status--scheduled  { background: rgba(234,179,8,0.1);  color: #b45309; }
+.dash-status--draft      { background: rgba(91,100,120,0.1); color: var(--text-muted); }
 
 @media (max-width: 1024px) { .dash-stats { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) {
