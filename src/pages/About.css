@@ -33,8 +33,8 @@
 .about-story__body { color: var(--text-muted); line-height: 1.75; margin-top: 16px; font-size: 0.97rem; }
 .about-story__img-wrap { display: flex; justify-content: center; }
 .about-story__img {
-  width: 280px;
-  height: 280px;
+  width: min(280px, 100%);
+  height: min(280px, 100vw);
   object-fit: contain;
   border-radius: 50%;
   background: var(--white);

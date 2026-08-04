@@ -202,7 +202,8 @@
   grid-template-columns: 1.08fr 0.92fr;
   gap: 48px;
   align-items: center;
-  padding: 84px clamp(24px, 4vw, 60px);
+  padding-top: 84px;
+  padding-bottom: 84px;
 }
 .hero__left {
   max-width: 720px;
@@ -618,6 +619,8 @@
   height: 280px;
   border-radius: 50%;
   background: rgba(38, 178, 75, 0.12);
+  pointer-events: none;
+  overflow: hidden;
 }
 .cta__img {
   width: 100%;
