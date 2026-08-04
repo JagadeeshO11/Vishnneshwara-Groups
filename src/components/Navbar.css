@@ -14,7 +14,7 @@
 }
 
 .navbar .container {
-  max-width: 100%;
+  max-width: var(--container);
 }
 
 .navbar__inner {
@@ -23,8 +23,7 @@
   justify-content: space-between;
   gap: 20px;
   height: var(--header-h);
-  max-width: 100%;
-  padding: 0 clamp(16px, 3vw, 48px);
+  padding: 0;
 }
 
 /* ── Brand ── */

@@ -85,7 +85,10 @@ export default function Contact() {
               <span className="contact-info__icon"><Phone size={20} /></span>
               <div>
                 <h3 className="contact-info__label">Phone</h3>
-                <p className="contact-info__value">+91 XXXXXXXXXX</p>
+                <p className="contact-info__value">
+                  <a href="tel:+919182501478">+91 9182501478</a><br />
+                  <a href="tel:+919182401478">+91 9182401478</a>
+                </p>
                 <p className="contact-info__note">Mon–Sat, 9am–7pm IST</p>
               </div>
             </div>
@@ -93,7 +96,9 @@ export default function Contact() {
               <span className="contact-info__icon"><MailIcon size={20} /></span>
               <div>
                 <h3 className="contact-info__label">Email</h3>
-                <p className="contact-info__value">info@vishnneshwaragroups.com</p>
+                <p className="contact-info__value">
+                  <a href="mailto:vishnneshwaragroups@gmail.com">vishnneshwaragroups@gmail.com</a>
+                </p>
                 <p className="contact-info__note">We reply within 24 hours</p>
               </div>
             </div>

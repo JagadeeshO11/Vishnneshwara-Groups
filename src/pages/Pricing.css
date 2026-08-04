@@ -158,3 +158,4 @@
 
 @media (max-width: 1024px) { .price-grid { grid-template-columns: repeat(2, 1fr); } .price-card--popular { transform: none; } }
 @media (max-width: 768px)  { .price-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } .price-cta { padding: 40px 24px; } }
+@media (max-width: 480px)  { .price-cta { padding: 32px 16px; } .price-hero { padding: 56px 0 48px; } }

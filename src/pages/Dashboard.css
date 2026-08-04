@@ -252,8 +252,21 @@
 @media (max-width: 768px) {
   .dash-sidebar { position: fixed; left: -240px; z-index: 100; transition: left 0.3s ease; }
   .dash-sidebar.open { left: 0; }
+  .dash-sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 99;
+  }
+  .dash-sidebar.open ~ .dash-sidebar-overlay { display: block; }
   .dash-hamburger { display: flex; }
   .dash-stats { grid-template-columns: 1fr 1fr; }
   .dash-content { padding: 16px; }
+  .dash-topbar { padding: 0 16px; }
 }
-@media (max-width: 480px) { .dash-stats { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  .dash-stats { grid-template-columns: 1fr; }
+  .dash-content { padding: 12px; }
+  .dash-topbar__right .btn { display: none; }
+}

@@ -1,7 +1,7 @@
 /* Reports.css */
 @import "./Dashboard.css";
 
-.rep-page { padding: 28px 24px; display: flex; flex-direction: column; gap: 24px; background: var(--off-white); min-height: 100vh; }
+.rep-page { padding: clamp(16px, 3vw, 28px) clamp(12px, 3vw, 24px); display: flex; flex-direction: column; gap: 24px; background: var(--off-white); min-height: 100vh; }
 
 .rep-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .rep-header__title { font-size: 1.4rem; font-weight: 800; color: var(--navy); }

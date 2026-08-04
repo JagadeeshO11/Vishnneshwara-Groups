@@ -1,7 +1,7 @@
 /* Campaigns.css */
 @import "./Dashboard.css";
 
-.camp-page { padding: 28px 24px; display: flex; flex-direction: column; gap: 24px; background: var(--off-white); min-height: 100vh; }
+.camp-page { padding: clamp(16px, 3vw, 28px) clamp(12px, 3vw, 24px); display: flex; flex-direction: column; gap: 24px; background: var(--off-white); min-height: 100vh; }
 
 .camp-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .camp-header__title { font-size: 1.4rem; font-weight: 800; color: var(--navy); }
@@ -86,4 +86,5 @@
 .camp-tpl__desc  { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; font-style: italic; }
 .camp-tpl__btn   { font-size: 0.8rem; padding: 8px 16px; }
 
-@media (max-width: 768px) { .camp-templates__grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .camp-templates__grid { grid-template-columns: 1fr; } .camp-header { flex-direction: column; } }
+@media (max-width: 480px) { .camp-tabs { gap: 6px; } .camp-tab { padding: 6px 12px; font-size: 0.78rem; } }

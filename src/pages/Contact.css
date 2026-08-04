@@ -145,3 +145,8 @@
   .contact-form__row   { grid-template-columns: 1fr; }
   .contact-form-wrap   { padding: 24px; }
 }
+
+@media (max-width: 480px) {
+  .contact-form-wrap { padding: 16px; }
+  .contact-hero { padding: 56px 0 48px; }
+}

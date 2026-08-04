@@ -72,8 +72,17 @@ export default function Footer() {
         <div className="footer__col">
           <h4 className="footer__heading">Contact Us</h4>
           <ul className="footer__list footer__list--contact">
-            <li><span className="ci"><Phone /></span> +91 XXXXXXXXX</li>
-            <li><span className="ci"><MailIcon size={16} /></span> info@vishnneshwaragroups.com</li>
+            <li>
+              <span className="ci"><Phone /></span>
+              <span>
+                <a href="tel:+919182501478">+91 9182501478</a><br />
+                <a href="tel:+919182401478">+91 9182401478</a>
+              </span>
+            </li>
+            <li>
+              <span className="ci"><MailIcon size={16} /></span>
+              <a href="mailto:vishnneshwaragroups@gmail.com">vishnneshwaragroups@gmail.com</a>
+            </li>
             <li><span className="ci"><Pin /></span> India</li>
           </ul>
         </div>

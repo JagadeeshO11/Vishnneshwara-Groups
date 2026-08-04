@@ -189,7 +189,7 @@
 .about-cta {
   background: linear-gradient(100deg, var(--navy-deep) 0%, var(--navy-mid) 100%);
   border-radius: 20px;
-  padding: 64px;
+  padding: clamp(32px, 5vw, 64px);
   text-align: center;
   color: var(--white);
 }
@@ -212,10 +212,11 @@
   .timeline__item--right { flex-direction: column; }
   .timeline__card { width: 100%; margin: 0 !important; }
   .timeline__dot  { left: 20px; top: 24px; }
-  .about-cta { padding: 40px 24px; }
+  .about-hero { padding: 56px 0 48px; }
 }
 @media (max-width: 480px) {
   .values-grid { grid-template-columns: 1fr; }
   .team-grid   { grid-template-columns: 1fr; }
   .about-stats__grid { grid-template-columns: 1fr; }
+  .about-hero { padding: 48px 0 40px; }
 }

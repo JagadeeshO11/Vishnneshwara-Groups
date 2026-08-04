@@ -131,3 +131,9 @@
   .auth-panel--brand { display: none; }
   .auth-panel--form { padding: 40px 20px; min-height: 100vh; }
 }
+
+@media (max-width: 480px) {
+  .auth-panel--form { padding: 24px 16px; }
+  .auth-form-wrap { max-width: 100%; }
+  .auth-socials { flex-direction: column; }
+}
