@@ -13,17 +13,12 @@
   box-shadow: var(--shadow-sm);
 }
 
-.navbar .container {
-  max-width: var(--container);
-}
-
 .navbar__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   height: var(--header-h);
-  padding: 0;
 }
 
 /* ── Brand ── */
