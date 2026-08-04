@@ -245,7 +245,8 @@
   margin-top: 36px;
 }
 .channel {
-  min-width: 170px;
+  min-width: 0;
+  flex: 1 1 140px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -303,7 +304,7 @@
 .hero__logo-wrap::before {
   content: "";
   position: absolute;
-  inset: -24px;
+  inset: 0;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, rgba(38, 178, 75, 0.45), transparent 30%),
               radial-gradient(circle at 75% 35%, rgba(31, 111, 224, 0.45), transparent 30%);
