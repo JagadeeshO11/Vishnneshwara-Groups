@@ -88,6 +88,9 @@
 .legal-section__body { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; }
 
 @media (max-width: 768px) {
+  .legal-hero { padding: 48px 0 40px; text-align: left; }
+  .legal-hero__title { margin: 16px 0 0; }
+  .legal-hero__desc  { margin: 14px 0 0; }
   .legal-main__inner { grid-template-columns: 1fr; }
   .legal-sidebar { position: static; }
   .legal-content { padding: 24px; }

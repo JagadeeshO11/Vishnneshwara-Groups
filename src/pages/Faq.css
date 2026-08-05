@@ -103,11 +103,15 @@
 .faq-cta__btns  { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 @media (max-width: 768px) {
+  .faq-hero { padding: 48px 0 40px; text-align: left; }
+  .faq-hero__title { margin: 16px 0 0; }
+  .faq-hero__sub   { margin: 16px 0 0; }
+  .faq-search { margin: 28px 0 0; }
   .faq-main__inner { grid-template-columns: 1fr; }
   .faq-sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
-  .faq-cta { padding: 40px 24px; }
+  .faq-cta { padding: 40px 24px; text-align: left; }
+  .faq-cta__btns { justify-content: flex-start; }
 }
 @media (max-width: 480px) {
   .faq-cta { padding: 32px 16px; }
-  .faq-hero { padding: 56px 0 48px; }
 }

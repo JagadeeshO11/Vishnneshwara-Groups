@@ -164,13 +164,20 @@
   .limits-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
+  .api-hero { padding: 48px 0 40px; text-align: left; }
+  .api-hero__title { margin: 16px 0 0; }
+  .api-hero__sub   { margin: 18px 0 0; }
+  .api-hero__cta   { justify-content: flex-start; }
   .api-auth__inner { grid-template-columns: 1fr; gap: 32px; }
-  .sdk-grid { grid-template-columns: 1fr; }
-  .api-highlights__grid { grid-template-columns: 1fr; }
-  .limits-grid { grid-template-columns: 1fr; }
-  .api-hero { padding: 56px 0 48px; }
+  .api-highlights__grid { grid-template-columns: repeat(2, 1fr); }
+  .sdk-grid { grid-template-columns: repeat(2, 1fr); }
+  .limits-grid { grid-template-columns: repeat(2, 1fr); }
+  .api-cta { text-align: left; }
+  .api-cta__btns { justify-content: flex-start; }
 }
 @media (max-width: 480px) {
-  .api-hero { padding: 48px 0 40px; }
+  .api-highlights__grid { grid-template-columns: 1fr; }
+  .sdk-grid { grid-template-columns: 1fr; }
+  .limits-grid { grid-template-columns: repeat(2, 1fr); }
   .api-code-block__body { padding: 14px 16px; }
 }

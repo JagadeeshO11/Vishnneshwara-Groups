@@ -211,6 +211,9 @@ button {
     --footer-mt: 48px;
     --section-gap: 56px;
   }
+  .eyebrow          { justify-content: flex-start; }
+  .section-title    { text-align: left; }
+  .section-sub      { text-align: left; }
 }
 
 @media (max-width: 480px) {

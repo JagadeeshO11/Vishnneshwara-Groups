@@ -99,10 +99,16 @@
   .svc-benefits__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .svc-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
-  .svc-benefits__grid { grid-template-columns: 1fr; }
-  .svc-hero { padding: 56px 0 48px; }
+  .svc-hero { padding: 48px 0 40px; text-align: left; }
+  .svc-hero__title { margin: 16px 0 0; }
+  .svc-hero__sub   { margin: 18px 0 0; }
+  .svc-hero__cta   { justify-content: flex-start; }
+  .svc-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; margin-left: 0; margin-right: 0; }
+  .svc-benefits__grid { grid-template-columns: repeat(2, 1fr); }
+  .svc-cta { text-align: left; }
+  .svc-cta__btns { justify-content: flex-start; }
 }
 @media (max-width: 480px) {
-  .svc-hero { padding: 48px 0 40px; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc-benefits__grid { grid-template-columns: 1fr; }
 }
