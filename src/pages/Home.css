@@ -24,12 +24,22 @@
 .hero__inner {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 40px;
   padding-top: 64px;
   padding-bottom: 64px;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  width: 100%;
+}
+
+.hero__left,
+.hero__right {
+  width: 100%;
+  display: block;
 }
 
 /* ── Corner brand — overlaps the white decorative shape ── */
@@ -101,8 +111,22 @@
   line-height: 1.65;
 }
 
-.channels { display: flex; gap: 16px; margin: 32px 0; flex-wrap: wrap; }
-.channel  { min-width: 0; flex: 1 1 130px; display: flex; align-items: center; gap: 10px; }
+.channels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 16px;
+  margin: 24px 0 0;
+  max-width: 560px;
+}
+.channel {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 0;
+}
 .channel__icon {
   width: 42px; height: 42px;
   border-radius: 12px;
@@ -113,14 +137,53 @@
 .channel__icon--blue  { background: var(--blue); }
 .channel__icon--green { background: var(--green); }
 .channel__text {
-  display: flex; flex-direction: column;
-  font-size: 0.78rem; color: #b9c3e4; line-height: 1.3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #b9c3e4;
+  line-height: 1.3;
 }
-.channel__text strong { font-size: 0.9rem; color: var(--white); font-weight: 600; }
+.channel__text strong {
+  font-size: 0.9rem;
+  color: var(--white);
+  font-weight: 600;
+}
 
-.hero__cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero__cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 
-.hero__right { display: flex; justify-content: center; align-items: center; }
+.hero__cta .btn {
+  font-size: 0.8rem;
+  padding: 10px 16px;
+}
+
+.hero__cta--bottom {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.hero__cta--bottom .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.hero__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
 
 /* ── Hero logo — single size token drives all layers ── */
 /*    --logo-sz controls wrap, ring, and img together    */
@@ -380,14 +443,32 @@
 }
 
 @media (max-width: 768px) {
-  .hero__inner { grid-template-columns: 1fr; text-align: left; padding-top: 32px; padding-bottom: 32px; gap: 24px; }
+  .hero__inner { text-align: left; padding-top: 32px; padding-bottom: 32px; gap: 24px; }
   .hero__title, .hero__sub { max-width: 100%; }
-  /* channels — wrap freely, never overflow */
-  .channels { flex-wrap: wrap; gap: 12px; justify-content: flex-start; }
-  .channel  { flex: 0 0 auto; }
-  .hero__cta { justify-content: flex-start; }
-  .hero__right { order: -1; justify-content: center; }
-  .hero__logo-wrap { animation: none; --logo-sz: 200px; }
+  .hero .container { padding-left: 24px; padding-right: 24px; }
+  .channels {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 12px;
+    margin: 20px 0 24px;
+  }
+  .hero__cta {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+  .hero__cta--bottom {
+    max-width: 100%;
+  }
+  .hero__cta .btn,
+  .cta__buttons .btn { padding: 10px 16px; }
+  .hero__right {
+    order: -1;
+    justify-content: center;
+    gap: 14px;
+    align-items: center;
+  }
+  .hero__logo-wrap { animation: none; --logo-sz: 200px; margin: 0 auto; }
   .hero__logo { padding: 10%; }
 
   .cards { grid-template-columns: 1fr; max-width: 100%; margin-left: 0; margin-right: 0; }
@@ -413,10 +494,31 @@
 }
 
 @media (max-width: 480px) {
-  .hero__logo-wrap { --logo-sz: min(160px, 56vw); }
-  .channels { flex-direction: row; justify-content: flex-start; flex-wrap: wrap; gap: 10px; }
-  .hero__cta { flex-direction: column; align-items: flex-start; }
-  .hero__cta .btn { width: 100%; max-width: 280px; justify-content: center; }
+  .hero__logo-wrap { --logo-sz: min(160px, 56vw); margin: 0 auto; }
+  .channels {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .hero__cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero__cta--bottom {
+    grid-template-columns: 1fr;
+  }
+  .hero__cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero__cta {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .hero__cta .btn {
+    justify-content: center;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+  }
   .stat { padding: 14px 20px; }
   .cta { padding: 20px 16px; }
   .cta__title { font-size: 1.4rem; }

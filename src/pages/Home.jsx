@@ -66,49 +66,51 @@ export default function Home() {
       {/* ===== Hero ===== */}
       <section className="hero" id="home">
         <div className="container hero__inner">
-          <div
-            className={"hero__left reveal-left" + (heroReveal.visible ? " visible" : "")}
-            ref={heroReveal.ref}
-          >
-            <span className="badge">SMARTER MESSAGING. STRONGER CONNECTIONS.</span>
-            <h1 className="hero__title">
-              <span className="hero__title-line">
-                Powerful{" "}
-                <span className="c-green typewriter-word">
-                  {typed}
-                  <span className="typewriter-cursor" aria-hidden="true" />
-                </span>
-              </span>
-            </h1>
-            <p className="hero__sub">
-              Reach the right audience instantly with our reliable, fast and secure messaging solutions.
-            </p>
-
-            <div className="channels">
-              {[
-                { icon: <ChatIcon size={22} />,     color: "blue",  label: "SMS" },
-                { icon: <WhatsAppIcon size={22} />, color: "green", label: "WhatsApp" },
-                { icon: <MailIcon size={22} />,     color: "blue",  label: "Email" },
-              ].map(({ icon, color, label }) => (
-                <div key={label} className="channel">
-                  <span className={"channel__icon channel__icon--" + color}>{icon}</span>
-                  <span className="channel__text">
-                    <strong>{label}</strong>Broadcast
+          <div className="hero__content">
+            <div
+              className={"hero__left reveal-left" + (heroReveal.visible ? " visible" : "")}
+              ref={heroReveal.ref}
+            >
+              <span className="badge">SMARTER MESSAGING. STRONGER CONNECTIONS.</span>
+              <h1 className="hero__title">
+                <span className="hero__title-line">
+                  Powerful{" "}
+                  <span className="c-green typewriter-word">
+                    {typed}
+                    <span className="typewriter-cursor" aria-hidden="true" />
                   </span>
-                </div>
-              ))}
+                </span>
+              </h1>
+              <p className="hero__sub">
+                Reach the right audience instantly with our reliable, fast and secure messaging solutions.
+              </p>
+
+              <div className="channels">
+                {[
+                  { icon: <ChatIcon size={22} />,     color: "blue",  label: "SMS" },
+                  { icon: <WhatsAppIcon size={22} />, color: "green", label: "WhatsApp" },
+                  { icon: <MailIcon size={22} />,     color: "blue",  label: "Email" },
+                ].map(({ icon, color, label }) => (
+                  <div key={label} className="channel">
+                    <span className={"channel__icon channel__icon--" + color}>{icon}</span>
+                    <span className="channel__text">
+                      <strong>{label}</strong>Broadcast
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="hero__cta hero__cta--bottom">
+                <button className="btn btn--green">Get Started Now <ArrowRight /></button>
+                <button className="btn btn--outline">Explore Services <ArrowRight /></button>
+              </div>
             </div>
 
-            <div className="hero__cta">
-              <button className="btn btn--green">Get Started Now <ArrowRight /></button>
-              <button className="btn btn--outline">Explore Services <ArrowRight /></button>
-            </div>
-          </div>
-
-          <div className="hero__right reveal-right visible">
-            <div className="hero__logo-wrap">
-              <div className="hero__logo-ring" aria-hidden="true" />
-              <img src="/vg-mark.png" alt="Vishnneshwara Groups emblem" className="hero__logo" />
+            <div className="hero__right reveal-right visible">
+              <div className="hero__logo-wrap">
+                <div className="hero__logo-ring" aria-hidden="true" />
+                <img src="/vg-mark.png" alt="Vishnneshwara Groups emblem" className="hero__logo" />
+              </div>
             </div>
           </div>
         </div>
