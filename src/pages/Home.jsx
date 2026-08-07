@@ -15,12 +15,12 @@ const services = [
 ]
 
 const features = [
-  { icon: <Gauge />,   title: "High Delivery Rate" },
-  { icon: <Bolt />,    title: "Instant Delivery" },
-  { icon: <Shield />,  title: "Secure & Reliable" },
-  { icon: <Users />,   title: "Easy to Use Platform" },
-  { icon: <Chart />,   title: "Detailed Reports & Analytics" },
-  { icon: <Headset />, title: "24/7 Customer Support" },
+  { icon: <Gauge />,   title: "High Delivery Rate",         desc: "99% uptime with guaranteed message delivery across all channels." },
+  { icon: <Bolt />,    title: "Instant Delivery",           desc: "Messages reach your audience in seconds, not minutes." },
+  { icon: <Shield />,  title: "Secure & Reliable",          desc: "Enterprise-grade encryption keeps your data safe at all times." },
+  { icon: <Users />,   title: "Easy to Use Platform",       desc: "Intuitive dashboard — no technical skills required to get started." },
+  { icon: <Chart />,   title: "Detailed Reports & Analytics", desc: "Track delivery, open rates and campaign performance in real time." },
+  { icon: <Headset />, title: "24/7 Customer Support",      desc: "Our support team is always available to help you succeed." },
 ]
 
 const statsData = [
@@ -147,6 +147,7 @@ export default function Home() {
               <div key={f.title} className="feature">
                 <span className="feature__icon">{f.icon}</span>
                 <p className="feature__title">{f.title}</p>
+                <p className="feature__desc">{f.desc}</p>
               </div>
             ))}
           </div>

@@ -1,71 +1,93 @@
 import "./Features.css"
-import { ArrowRight, Gauge, Bolt, Shield, Users, Chart, Headset, Target, Send, ChatIcon, MailIcon, Clipboard } from "../Icons.jsx"
+import { ArrowRight, Gauge, Bolt, Shield, Users, Chart, Headset, Send, ChatIcon, WhatsAppIcon, MailIcon, Clipboard, Target, ShieldSolid } from "../Icons.jsx"
 
 const features = [
-  { icon: <Gauge size={28} />,     title: "High Delivery Rate",       text: "99%+ delivery rate across SMS, WhatsApp, and Email channels with intelligent routing.", tag: "Core" },
-  { icon: <Bolt size={28} />,      title: "Instant Delivery",         text: "Sub-second message delivery powered by our distributed infrastructure.", tag: "Core" },
-  { icon: <Chart size={28} />,     title: "Analytics Dashboard",      text: "Real-time charts and reports for delivery, open rates, clicks, and conversions.", tag: "Analytics" },
-  { icon: <Clipboard size={28} />, title: "Campaign Scheduler",       text: "Schedule campaigns in advance with timezone-aware delivery for global audiences.", tag: "Automation" },
-  { icon: <Users size={28} />,     title: "Contact Management",       text: "Organize contacts into groups, import via CSV, and manage opt-outs automatically.", tag: "Management" },
-  { icon: <Send size={28} />,      title: "Message Templates",        text: "Pre-approved DLT templates for SMS and WhatsApp with variable substitution.", tag: "Core" },
-  { icon: <ChatIcon size={28} />,  title: "WhatsApp Automation",      text: "Trigger automated WhatsApp messages based on user actions and events.", tag: "Automation" },
-  { icon: <MailIcon size={28} />,  title: "Email Tracking",           text: "Track email opens, link clicks, bounces, and unsubscribes in real time.", tag: "Analytics" },
-  { icon: <Shield size={28} />,    title: "OTP APIs",                 text: "Secure OTP delivery via SMS or WhatsApp with auto-retry and expiry control.", tag: "Security" },
-  { icon: <Target size={28} />,    title: "Bulk Upload",              text: "Upload millions of contacts via CSV or Excel with duplicate detection.", tag: "Management" },
-  { icon: <Chart size={28} />,     title: "Detailed Reports",         text: "Export delivery reports in PDF or Excel with campaign-level breakdowns.", tag: "Analytics" },
-  { icon: <Headset size={28} />,   title: "24/7 Support",             text: "Dedicated support team available round the clock via chat, email, and phone.", tag: "Support" },
+  { icon: <Gauge size={28} />,    title: "High Delivery Rate",          desc: "99% uptime with guaranteed message delivery across all channels, every time." },
+  { icon: <Bolt size={28} />,     title: "Instant Delivery",            desc: "Messages reach your audience in seconds, not minutes — real-time speed." },
+  { icon: <Shield size={28} />,   title: "Secure & Reliable",           desc: "Enterprise-grade encryption keeps your data and messages safe at all times." },
+  { icon: <Users size={28} />,    title: "Easy to Use Platform",        desc: "Intuitive dashboard — no technical skills required to launch campaigns." },
+  { icon: <Chart size={28} />,    title: "Reports & Analytics",         desc: "Track delivery, open rates and campaign performance in real time." },
+  { icon: <Headset size={28} />,  title: "24/7 Customer Support",       desc: "Our dedicated support team is always available to help you succeed." },
+  { icon: <Send size={28} />,     title: "Bulk Messaging",              desc: "Send millions of messages in one click with smart queue management." },
+  { icon: <Clipboard size={28}/>, title: "Contact Management",          desc: "Organise, segment and manage your audience lists with ease." },
+  { icon: <Target size={28} />,   title: "Campaign Scheduler",          desc: "Schedule campaigns in advance and automate delivery at the right time." },
+  { icon: <ChatIcon size={28} />, title: "SMS Broadcast",               desc: "Reach any mobile number instantly with high-speed bulk SMS delivery." },
+  { icon: <WhatsAppIcon size={28}/>, title: "WhatsApp Automation",      desc: "Send interactive WhatsApp messages with rich media and quick replies." },
+  { icon: <ShieldSolid size={28}/>,  title: "OTP & Transactional",      desc: "Deliver time-sensitive OTPs and transactional alerts with priority routing." },
 ]
 
-const tags = ["All", "Core", "Analytics", "Automation", "Management", "Security", "Support"]
+const highlights = [
+  { value: "99%",     label: "Delivery Rate" },
+  { value: "100+ Cr", label: "Messages Sent" },
+  { value: "10,000+", label: "Happy Clients" },
+  { value: "24/7",    label: "Support" },
+]
 
 export default function Features() {
   return (
     <>
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section className="feat-hero">
         <div className="container feat-hero__inner">
-          <span className="badge">PLATFORM FEATURES</span>
-          <h1 className="feat-hero__title">Everything You Need to <span className="c-green">Succeed</span></h1>
-          <p className="feat-hero__sub">A powerful feature set designed to make your messaging campaigns faster, smarter, and more effective.</p>
+          <p className="eyebrow"><span className="eyebrow__dash" /> FEATURES</p>
+          <h1 className="feat-hero__title">
+            Built for <span className="c-green">Modern Businesses</span>
+          </h1>
+          <p className="feat-hero__sub">
+            Everything you need to reach, engage and grow your audience — in one powerful platform.
+          </p>
           <div className="feat-hero__cta">
-            <button className="btn btn--green">Start Free Trial <ArrowRight /></button>
+            <button className="btn btn--green">Get Started Free <ArrowRight /></button>
             <button className="btn btn--outline">View Pricing <ArrowRight /></button>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="feat-section">
+      {/* ── Highlights bar ── */}
+      <section className="feat-highlights">
         <div className="container">
-          <p className="eyebrow"><span className="eyebrow__dash" /> FEATURES</p>
-          <h2 className="section-title">Built for <span className="c-green">Modern Businesses</span></h2>
-          <div className="feat-tags" role="list">
-            {tags.map((t) => (
-              <span key={t} className="feat-tag" role="listitem">{t}</span>
-            ))}
-          </div>
-          <div className="feat-grid">
-            {features.map((f) => (
-              <article key={f.title} className="card feat-card">
-                <div className="feat-card__top">
-                  <span className="feat-card__icon">{f.icon}</span>
-                  <span className="feat-card__tag">{f.tag}</span>
-                </div>
-                <h3 className="feat-card__title">{f.title}</h3>
-                <p className="feat-card__text">{f.text}</p>
-              </article>
+          <div className="feat-highlights__grid">
+            {highlights.map((h) => (
+              <div key={h.label} className="feat-highlight">
+                <strong className="feat-highlight__value">{h.value}</strong>
+                <span className="feat-highlight__label">{h.label}</span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── Feature cards ── */}
+      <section className="feat-cards-section">
+        <div className="container">
+          <p className="eyebrow"><span className="eyebrow__dash" /> WHAT WE OFFER</p>
+          <h2 className="section-title">Powerful <span className="c-green">Features</span> at Your Fingertips</h2>
+          <p className="section-sub">Designed to make bulk messaging simple, fast and effective for every business.</p>
+
+          <div className="feat-grid">
+            {features.map((f) => (
+              <div key={f.title} className="feat-card">
+                <span className="feat-card__icon">{f.icon}</span>
+                <h3 className="feat-card__title">{f.title}</h3>
+                <p className="feat-card__desc">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
       <section className="feat-cta-section">
         <div className="container">
           <div className="feat-cta">
-            <h2 className="feat-cta__title">Explore All Features Free for 14 Days</h2>
-            <p className="feat-cta__text">No credit card required. Full access to all features during your trial.</p>
-            <button className="btn btn--green">Start Free Trial <ArrowRight /></button>
+            <div className="feat-cta__body">
+              <h2 className="feat-cta__title">Ready to experience all these features?</h2>
+              <p className="feat-cta__text">Start your free trial today — no credit card required.</p>
+              <div className="feat-cta__buttons">
+                <button className="btn btn--green">Start Free Trial <ArrowRight /></button>
+                <button className="btn btn--outline">Contact Sales <ArrowRight /></button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
